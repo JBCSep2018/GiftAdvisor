@@ -33,7 +33,7 @@ public class Main {
                 "Medium","child"));
 
         // prompt user for input
-        
+
         System.out.println("Enter your gender");
         String userGender = sc.next();
 
@@ -43,20 +43,20 @@ public class Main {
         System.out.println("Enter the age of the person-child or teen or adult?");
         String userAge = sc.next();
 
-        // add gift suggestions to this list if anything matches
-        ArrayList<String> giftSuggestions = new ArrayList<>();
+        // count number of matching gifts to the user input
+        int countGiftSuggestions = 0;
 
         for (Gift gift1:options){
              if (gift1.getGender().equalsIgnoreCase(userGender)
                      && gift1.getPrice().equalsIgnoreCase(userPrice)
                      && gift1.getAge() .equalsIgnoreCase(userAge)){
                  System.out.println(gift1.getGiftName());
-                 giftSuggestions.add(gift1.getGiftName());
+                 countGiftSuggestions++;
              }
         }
 
-        // if the suggestions list is empty, get user a gift certificate
-        if(giftSuggestions.isEmpty()){
+        // if there are no matching gifts, give user a gift certificate
+        if(countGiftSuggestions == 0){
             System.out.println("You should get them a gift certificate");
         }
 
