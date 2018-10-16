@@ -36,13 +36,23 @@ public class Main {
 
         System.out.println("Enter your price");
         String userPrice = sc.next();
+
         System.out.println("Enter the age of the person-child or teen or adult?");
         String userAge = sc.next();
-            for (Gift gift1:options){
+
+        ArrayList<String> giftSuggestions = new ArrayList<>();
+
+        for (Gift gift1:options){
              if (gift1.getGender().equalsIgnoreCase(userGender)
-                     && gift1.getPrice().equalsIgnoreCase(userPrice)&& gift1.getAge() .equalsIgnoreCase(userAge)){
+                     && gift1.getPrice().equalsIgnoreCase(userPrice)
+                     && gift1.getAge() .equalsIgnoreCase(userAge)){
                  System.out.println(gift1.getGiftName());
+                 giftSuggestions.add(gift1.getGiftName());
              }
+        }
+
+        if(giftSuggestions.isEmpty()){
+            System.out.println("You should get them a gift certificate");
         }
 
     }
